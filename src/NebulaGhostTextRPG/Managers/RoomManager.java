@@ -23,7 +23,7 @@ public class RoomManager {
 
     public void generateRooms() {
         podStorage = new PodStorage(RoomState.NONE, Exits.NORTH, Exits.EAST);
-        cargoHold = new CargoHold(RoomState.NONE, Exits.NORTH, Exits.EAST, Exits.WEST);
+        cargoHold = new CargoHold(RoomState.NONE, Exits.NORTH, Exits.SOUTH, Exits.WEST);
         airlockB = new AirlockB(RoomState.NONE, Exits.NORTH);
         scrapCompactor = new ScrapCompactor(RoomState.NONE, Exits.EAST, Exits.SOUTH);
         security = new Security(RoomState.NONE, Exits.NORTH, Exits.WEST);

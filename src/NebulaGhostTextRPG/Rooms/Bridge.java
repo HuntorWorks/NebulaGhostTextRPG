@@ -9,6 +9,6 @@ public class Bridge extends Room {
     public Bridge(RoomState roomState, Exits... exits) {
         super(roomState, exits);
         this.description = StoryRegistry.BRIDGE_DESC;
-        this.roomName = "BRIDGE";
+        this.roomName = "Bridge";
     }
 }
