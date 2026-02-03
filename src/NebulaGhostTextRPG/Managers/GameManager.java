@@ -1,6 +1,7 @@
 package NebulaGhostTextRPG.Managers;
 
 import NebulaGhostTextRPG.Base.Exits;
+import NebulaGhostTextRPG.Base.Room;
 
 import java.util.Scanner;
 public class GameManager {
@@ -19,7 +20,9 @@ public class GameManager {
         roomManager.generateRooms();
 
         while (isGameRunning) {
-            dialogueManager.showRoomDialogue(roomManager.getCurrentActiveRoom());
+            Room currentRoom = roomManager.getCurrentActiveRoom();
+            dialogueManager.showRoomDialogue(currentRoom);
+            dialogueManager.showRoomNavigation(currentRoom);
 
             String input = scanner.next();
 
