@@ -5,8 +5,9 @@ import NebulaGhostTextRPG.Base.Room;
 import java.io.IOException;
 
 public class DialogueManager {
+    private boolean isOption;
     public DialogueManager() {
-
+        this.isOption = false;
     }
 
     public void showRoomDialogue(Room room) {
@@ -22,5 +23,9 @@ public class DialogueManager {
             navSb.append(exit.getDisplayName());
         }
         System.out.println(navSb);
+    }
+
+    public boolean isOption() {
+        return this.isOption;
     }
 }

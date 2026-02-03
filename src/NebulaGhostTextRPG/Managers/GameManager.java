@@ -1,5 +1,6 @@
 package NebulaGhostTextRPG.Managers;
 
+import NebulaGhostTextRPG.Base.CommandResult;
 import NebulaGhostTextRPG.Base.Exits;
 import NebulaGhostTextRPG.Base.Room;
 
@@ -28,18 +29,15 @@ public class GameManager {
             dialogueManager.showRoomNavigation(currentRoom);
 
             String input = scanner.next();
-            commandManager.parseCommand(input, currentRoom, this);
-            roomManager.navigateToRoom(currentRoom, exit);
+            CommandResult result = commandManager.parseCommand(input, currentRoom);
+            if (result.exit != null && roomManager.isNavigating()) {
+                roomManager.navigateToRoom(currentRoom, exit);
+            }
+            if (result.playerOption != null && dialogueManager.isOption()) {
+                //handle option logic here.
+            }
         }
         //roomManager.loadRoom(roomManager.getCurrentActiveRoom());
-    }
-
-    public void setExit(Exits exitChosen) {
-        this.exit = exitChosen;
-    }
-
-    public void setPlayerOption(String playerOption ){
-        this.playerOption = playerOption;
     }
 
     public void quit() {

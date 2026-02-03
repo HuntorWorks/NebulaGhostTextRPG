@@ -1,34 +1,36 @@
 package NebulaGhostTextRPG.Managers;
 
+import NebulaGhostTextRPG.Base.CommandResult;
 import NebulaGhostTextRPG.Base.Exits;
 import NebulaGhostTextRPG.Base.Room;
 
 import java.util.List;
 
 public class CommandManager {
+    CommandResult cmdResult = new CommandResult();
     public CommandManager() {
 
     }
 
-    public void parseCommand(String command, Room currentRoom, GameManager gameManager) {
+    public CommandResult parseCommand(String command, Room currentRoom) {
         if (command.matches("[A-Za-z]")) {
             if (command.equalsIgnoreCase("q")) {
-                gameManager.quit();
+                //QUIT
+
             }
-            parseMovement(command, currentRoom, gameManager);
+            cmdResult.exit = parseMovement(command, currentRoom);
         }
         if (command.matches("0-15")) {
-            parseOption(command, gameManager);
+            cmdResult.playerOption = parseOption(command);
         }
 
     }
-    private void parseOption(String command, GameManager gameManager) {
+    private String parseOption(String command) {
         //OPTIONS.
         String playerOption = "";
-        gameManager.setPlayerOption(playerOption);
     }
 
-    private void parseMovement(String command, Room currentRoom, GameManager gameManager) {
+    private Exits parseMovement(String command, Room currentRoom) {
         Exits exitChosen = null;
         List<Exits> availableExits = currentRoom.getExits();
 
@@ -45,7 +47,7 @@ public class CommandManager {
             invalidNavigationDir();
         }
 
-        gameManager.setExit(exitChosen);
+        return exitChosen;
     }
 
     //Error Messages.

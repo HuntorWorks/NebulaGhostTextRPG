@@ -99,8 +99,12 @@ public class RoomManager {
         return currentActiveRoom;
     }
 
+    public boolean isNavigating() {
+        return this.isNavigating;
+    }
+
     public void navigateToRoom(Room fromRoom, Exits direction) {
-        if (isNavigating) {
+        if (this.isNavigating) {
             try {
                 Room nextRoom = masterMap.get(fromRoom).get(direction);
                 nextRoom.loadRoom();
