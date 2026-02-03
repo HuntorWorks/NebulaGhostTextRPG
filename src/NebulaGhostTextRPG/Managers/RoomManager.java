@@ -55,7 +55,7 @@ public class RoomManager {
 
         linkRoom(medicalBay, Exits.EAST, hydroponicsLab);
         linkRoom(medicalBay, Exits.SOUTH, security);
-        linkRoom(medicalBay, Exits.EAST, airlockA);
+        linkRoom(medicalBay, Exits.WEST, airlockA);
 
         linkRoom(hydroponicsLab, Exits.NORTH, captainsQuarters);
         linkRoom(hydroponicsLab, Exits.EAST, commsArray);
