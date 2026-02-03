@@ -11,14 +11,15 @@ public class RoomManager {
 
     private Room currentActiveRoom;
     private HashMap<Room, HashMap<Exits, Room>> masterMap = new HashMap<>();
+    private boolean isNavigating;
 
     //ROOMS
     private Room podStorage,cargoHold, airlockB, scrapCompactor, security, medicalBay, airlockA, hydroponicsLab, captainsQuarters,reactorCore, o2System, commsArray, observationDeck, bridge;
 
     public RoomManager() {
         generateRooms();
-
         setStartingRoom(podStorage);
+        isNavigating = false;
     }
 
     public void generateRooms() {
@@ -94,26 +95,21 @@ public class RoomManager {
         this.currentActiveRoom = startingRoom;
     }
 
-    public void loadRoom(Room roomToLoad) {
-        roomToLoad.loadRoom();
-    }
-
     public Room getCurrentActiveRoom() {
         return currentActiveRoom;
     }
 
     public void navigateToRoom(Room fromRoom, Exits direction) {
-        try {
-            Room nextRoom = masterMap.get(fromRoom).get(direction);
-            nextRoom.loadRoom();
-            this.currentActiveRoom = nextRoom;
-        } catch (Exception e) {
-            System.out.println("[ERROR]: " + fromRoom.getRoomName() + " not linked!");
+        if (isNavigating) {
+            try {
+                Room nextRoom = masterMap.get(fromRoom).get(direction);
+                nextRoom.loadRoom();
+                this.currentActiveRoom = nextRoom;
+            } catch (Exception e) {
+                System.out.println("[ERROR]: " + fromRoom.getRoomName() + " not linked!");
+            }
         }
-    }
-
-    private boolean isValidNavigation(Exits exit, Room room) {
-        return room.getExits().contains(exit) ? true : false;
+        System.out.println("[NAVIGATION ERROR]: isNavigating is set to " + isNavigating );
     }
 
 }
