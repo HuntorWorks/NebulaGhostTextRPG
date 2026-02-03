@@ -10,8 +10,8 @@ public class StoryRegistry {
     public static final String SCRAP_COMPACTOR_DESC = "";
     public static final String SECURITY_DESC = "";
     public static final String MEDICAL_BAY_DESC = "";
-    public static final String HYRDOPONICS_LAB_DESC = "";
-    public static final String CAPTAINS_QUATERS_DESC = "";
+    public static final String HYDROPONICS_LAB_DESC = "";
+    public static final String CAPTAINS_QUARTERS_DESC = "";
     public static final String REACTOR_CORE_DESC = "";
     public static final String O2_SYSTEMS_DESC = "";
     public static final String COMMS_ARRAY_DESC = "";

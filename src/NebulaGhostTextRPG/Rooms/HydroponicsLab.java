@@ -9,7 +9,7 @@ public class HydroponicsLab extends Room {
     public HydroponicsLab(RoomState roomState, Exits... exits) {
 
         super(roomState, exits);
-        this.description = StoryRegistry.HYRDOPONICS_LAB_DESC;
+        this.description = StoryRegistry.HYDROPONICS_LAB_DESC;
         this.roomName = "Hydroponics Lab";
     }
 }

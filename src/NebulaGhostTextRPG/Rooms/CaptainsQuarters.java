@@ -8,7 +8,7 @@ import NebulaGhostTextRPG.Data.StoryRegistry;
 public class CaptainsQuarters extends Room {
     public CaptainsQuarters(RoomState roomState, Exits... exits) {
         super(roomState, exits);
-        this.description = StoryRegistry.CAPTAINS_QUATERS_DESC;
+        this.description = StoryRegistry.CAPTAINS_QUARTERS_DESC;
         this.roomName = "Captains Quarters";
     }
 }
