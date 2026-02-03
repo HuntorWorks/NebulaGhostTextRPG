@@ -1,6 +1,5 @@
 package NebulaGhostTextRPG.Managers;
 
-import NebulaGhostTextRPG.Base.Exits;
 import NebulaGhostTextRPG.Base.Room;
 
 import java.util.Scanner;
@@ -11,6 +10,7 @@ public class GameManager {
 
     RoomManager roomManager = new RoomManager();
     DialogueManager dialogueManager = new DialogueManager();
+    CommandManager commandManager = new CommandManager();
 
     public GameManager() {
         isGameRunning = true;
@@ -25,12 +25,8 @@ public class GameManager {
             dialogueManager.showRoomNavigation(currentRoom);
 
             String input = scanner.next();
-
-            if (input.equalsIgnoreCase("q")) {
-                quit();
-            } else if (input.equalsIgnoreCase("1")) {
-                roomManager.navigateToRoom(roomManager.getCurrentActiveRoom(), Exits.NORTH);
-            }
+            var exit = commandManager.parseMovement(input, currentRoom);
+            roomManager.navigateToRoom(currentRoom, exit);
         }
         //roomManager.loadRoom(roomManager.getCurrentActiveRoom());
     }
