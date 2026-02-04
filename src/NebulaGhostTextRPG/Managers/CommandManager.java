@@ -23,7 +23,7 @@ public class CommandManager {
         if (command.matches("0-15")) {
             cmdResult.playerOption = parseOption(command);
         }
-
+        return cmdResult;
     }
     private String parseOption(String command) {
         //OPTIONS.
