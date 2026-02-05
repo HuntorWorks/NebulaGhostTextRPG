@@ -12,9 +12,11 @@ public class GameManager {
     private Exits exit;
     private String playerOption;
 
+    //Managers
     RoomManager roomManager = new RoomManager();
     DialogueManager dialogueManager = new DialogueManager();
     CommandManager commandManager = new CommandManager();
+    InteractionManager interactionManager = new InteractionManager();
 
     public GameManager() {
         isGameRunning = true;
@@ -37,7 +39,6 @@ public class GameManager {
                 //handle option logic here.
             }
         }
-        //roomManager.loadRoom(roomManager.getCurrentActiveRoom());
     }
 
     public void quit() {
