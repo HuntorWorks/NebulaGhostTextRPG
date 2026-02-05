@@ -47,15 +47,23 @@ Options:
 ***
 ### **InteractionTypes**
 
-* `SEARCH`
-* `INVESTIGATE`
-* `SALVAGE`
-* `HACK`
-* `LEAVE`
-* `CRAFT`
-* `OPEN INVENTORY`
-* `CHECK SKILLS?`
-* `QUESTS?`
+* **ROOM_OBJECT INTERACTIONS**
+  * `SEARCH`
+  * `INVESTIGATE`
+  * `SALVAGE`
+  * `HACK`
+  * `REPAIR`
+
+
+* **PLAYER INTERACTIONS**
+  * `CRAFT`
+  * `OPEN INVENTORY`
+  * `CHECK SKILLS?`
+  * `QUESTS?`
+
+
+* **NAVIGATION INTERACTIONS**
+  * `LEAVE`
 
 ***
 ***
