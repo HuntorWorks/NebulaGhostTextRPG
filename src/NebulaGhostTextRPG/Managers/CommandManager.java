@@ -16,7 +16,6 @@ public class CommandManager {
         if (command.matches("[A-Za-z]")) {
             if (command.equalsIgnoreCase("q")) {
                 //QUIT
-
             }
             cmdResult.exit = parseMovement(command, currentRoom);
         }
@@ -28,13 +27,14 @@ public class CommandManager {
     private String parseOption(String command) {
         //OPTIONS.
         String playerOption = "";
+        return playerOption;
     }
 
     private Exits parseMovement(String command, Room currentRoom) {
         Exits exitChosen = null;
         List<Exits> availableExits = currentRoom.getExits();
 
-        // read command
+        // read command from player
         if (command.equalsIgnoreCase("N") && availableExits.contains(Exits.NORTH)) {
             exitChosen = Exits.NORTH;
         } else if (command.equalsIgnoreCase("E") && availableExits.contains(Exits.EAST)) {
@@ -46,6 +46,7 @@ public class CommandManager {
         } else {
             invalidNavigationDir();
         }
+
 
         return exitChosen;
     }
