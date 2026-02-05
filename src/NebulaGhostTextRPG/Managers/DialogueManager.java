@@ -12,6 +12,28 @@ public class DialogueManager {
 
     public void showRoomDialogue(Room room) {
         System.out.println(room.getRoomName());
+        showRoomOptions(room);
+    }
+
+    public void showRoomOptions(Room room) {
+        StringBuilder roomOptionsSB = new StringBuilder();
+
+        var roomObjects = room.getRoomObjects();
+        try {
+            for (var object : roomObjects) {
+                int index = 1;
+                for (var interaction : object.getVisibleInteractions()) {
+                    roomOptionsSB.append(index + ") ");
+                    roomOptionsSB.append(interaction.getInteractionName());
+                    roomOptionsSB.append(" ");
+                    roomOptionsSB.append(object.getObjectName());
+                    roomOptionsSB.append("\n");
+                }
+            }
+        } catch (RuntimeException e) {
+            System.out.println("roomObjects List Error: " + e);
+        }
+        System.out.println(roomOptionsSB);
     }
 
     public void showRoomNavigation(Room room) {
